@@ -3,7 +3,7 @@ import { Grid } from "@mui/material";
 import { tables } from "../api/tables";
 import CardComponent from "./CardComponent";
 
-const areasNombres = ["salon", "terrasa", "juegos", "salon 2"];
+const areasNombres = ["Salón", "Terraza", "Juegos", "SalónB"];
 
 function AreasRestaurante() {
   const [alltables, setAllTables] = useState([]);
@@ -21,9 +21,8 @@ function AreasRestaurante() {
   };
 
   useEffect(() => {
-    fetchTables(); 
-  }, []); 
-
+    fetchTables();
+  }, []);
 
   useEffect(() => {
     fetchTables();
