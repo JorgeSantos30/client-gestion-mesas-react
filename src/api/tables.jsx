@@ -1,9 +1,20 @@
 import { instance } from "./base.api";
 
-const endpoint = "/tables";
+const endpoints = {
+  getAll: "/tables",
+  addNew: "/register-table",
+};
 
 export const tables = {
   getAll: function () {
-    return instance.get(endpoint);
+    return instance.get(endpoints.getAll);
+  },
+  addNew: function (nameTable, numberStarters, status, area) {
+    return instance.post(endpoints.addNew, {
+      nameTable: nameTable,
+      numberStarters: numberStarters,
+      status: status,
+      area: area,
+    });
   },
 };

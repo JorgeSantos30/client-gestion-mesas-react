@@ -16,17 +16,12 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import AddBoxIcon from "@mui/icons-material/AddBox";
-import DeleteIcon from "@mui/icons-material/Delete";
-import UpdateIcon from "@mui/icons-material/Update";
-import logo from "../assets/cda-logo.jpg"
 import AreasRestaurant from "../components/AreasRestaurant";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 const menuItems = [
-  { text: "Dashboard", icon: <DashboardIcon />, link: '/' },
-  { text: "Agregar mesa", icon: <AddBoxIcon />, link: '/register-table' },
-  { text: "Eliminar mesa", icon: <DeleteIcon />, link: '/delete-table'},
-  { text: "Modificar mesa", icon: <UpdateIcon />, link: '/edit-table' },
+  { text: "Dashboard", icon: <DashboardIcon />, link: "/" },
+  { text: "Agregar mesa", icon: <AddBoxIcon />, link: "/register-table" },
 ];
 
 const drawerWidth = 240;
@@ -98,18 +93,15 @@ const Drawer = styled(MuiDrawer, {
 
 const containerStyles = {
   backgroundColor: "#f0f0f0",
-  padding: "10px"
+  padding: "10px",
 };
 
 export default function MiniDrawer() {
-
   const navigate = useNavigate();
-
 
   const handleNavigation = (link) => {
     navigate(link);
   };
-
 
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -120,6 +112,10 @@ export default function MiniDrawer() {
 
   const handleDrawerClose = () => {
     setOpen(false);
+  };
+
+  const handleModalClose = () => {
+    setModalType(null);
   };
 
   return (
@@ -139,14 +135,13 @@ export default function MiniDrawer() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            GESTIÓN DE MESAS ❤ DE AMARANTO
-            
+            GESTIÓN DE MESAS
           </Typography>
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader style={containerStyles}>
-          <img src={logo} alt="logo corazon de amaranto" style={{ width: "60%", height: "auto" }} />
+          <img style={{ width: "60%", height: "auto" }} />
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (
               <ChevronRightIcon />
@@ -156,10 +151,14 @@ export default function MiniDrawer() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        
+
         <List>
           {menuItems.map((item, index) => (
-            <ListItem button key={index} onClick={() => handleNavigation(item.link)}>
+            <ListItem
+              button
+              key={index}
+              onClick={() => handleNavigation(item.link)}
+            >
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItem>

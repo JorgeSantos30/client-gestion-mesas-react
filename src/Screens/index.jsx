@@ -1,3 +1,2 @@
-import React from "react"
-
 export { DashboardPage } from "./dashboard"
+export { AddTablePage } from "./addTable"

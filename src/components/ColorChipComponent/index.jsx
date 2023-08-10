@@ -5,11 +5,11 @@ import Stack from "@mui/material/Stack";
 export default function ColorChipsComponent({ status }) {
   let chipColor = "";
 
-  if (status === "disponible") {
+  if (status === "Disponible") {
     chipColor = "success";
-  } else if (status === "ocupada") {
+  } else if (status === "Ocupada") {
     chipColor = "error"; // Rojo para ocupada
-  } else if (status === "reservada") {
+  } else if (status === "Reservada") {
     chipColor = "warning"; // Amarillo para reservada
   }
 

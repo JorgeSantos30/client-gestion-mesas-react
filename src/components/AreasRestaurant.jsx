@@ -37,7 +37,7 @@ function AreasRestaurante() {
           <CardComponent
             key={mesa._id}
             variant="outlined"
-            numeroMesa={mesa.numberTable}
+            nombreMesa={mesa.nameTable}
             numeroComensales={mesa.numberStarters}
             status={mesa.status}
           />
